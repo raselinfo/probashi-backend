@@ -27,4 +27,7 @@ app.get("/health", (_req, res) => {
     res.send("<h1>OK RAsel</h1>")
 })
 
+app.get('/', (req, res) => {
+    res.sendStatus(200)
+})
 
