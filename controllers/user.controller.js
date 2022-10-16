@@ -3,6 +3,7 @@ const usersController = {
     // Create User
     async createUser(req, res) {
         const { name, fatherName, motherName, address, issueDate, certificate } = req.body
+        console.log("Body",req.body)
         if (!name || !fatherName || !motherName || !address || !issueDate) {
             return res.status(400).json({ message: "All fields are required!" })
         }
