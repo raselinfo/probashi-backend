@@ -12,7 +12,8 @@ const usersController = {
                 fatherName,
                 motherName,
                 address,
-                issueDate
+                issueDate,
+                certificate
             })
             const newUser = await user.save()
             const url = `${process.env.CLIENT_URL}/c/t/${newUser._id}`
