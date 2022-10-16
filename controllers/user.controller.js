@@ -25,7 +25,6 @@ const usersController = {
     },
     // Get all users
     async getUsers(_req, res) {
-        console.log("hello")
         try {
             const users = await User.find()
             console.log("user", users)
@@ -42,7 +41,7 @@ const usersController = {
             if (!user) {
                 return res.status(404).json({ message: "User not found!" })
             }
-            console.log(user)
+            console.log("Single User",user)
             res.status(200).json({ message: " Successful Trainee Information", data: user })
         } catch (err) {
             res.status(500).json({ message: err.message })
