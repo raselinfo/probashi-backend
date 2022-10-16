@@ -3,20 +3,23 @@ const usersController = {
     // Create User
     async createUser(req, res) {
         const { name, fatherName, motherName, address, issueDate, certificate } = req.body
-        console.log("Body",req.body)
+        console.log("Body is here", req.body)
         if (!name || !fatherName || !motherName || !address || !issueDate) {
             return res.status(400).json({ message: "All fields are required!" })
         }
         try {
             const user = new User({
                 name,
+                certificate,
                 fatherName,
                 motherName,
                 address,
-                issueDate,
-                certificate
+                issueDate
             })
             const newUser = await user.save()
+
+            console.log("new User", newUser)
+
             const url = `${process.env.CLIENT_URL}/c/t/${newUser._id}`
             res.status(201).json({ message: "User created successfully!", data: url })
         } catch (err) {
@@ -41,7 +44,7 @@ const usersController = {
             if (!user) {
                 return res.status(404).json({ message: "User not found!" })
             }
-            console.log("Single User",user)
+            console.log("Single User", user)
             res.status(200).json({ message: " Successful Trainee Information", data: user })
         } catch (err) {
             res.status(500).json({ message: err.message })
