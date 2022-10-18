@@ -7,7 +7,12 @@ const PORT = process.env.PORT || 4000
 // Middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(cors())
+app.use(cors({
+     "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204
+    }))
 
 // DB
 db.connect().then(({ connection: { host, port, name } }) => {
