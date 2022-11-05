@@ -26,7 +26,7 @@ const usersController = {
 
       console.log('new User', newUser);
 
-      const url = `${process.env.CLIENT_URL}/c/t/${newUser._id}`;
+      const url = `${process.env.CLIENT_URL}/c/t/${newUser.userID}`;
       res
         .status(201)
         .json({ message: 'User created successfully!', data: url });
