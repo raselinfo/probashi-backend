@@ -24,7 +24,7 @@ const usersController = {
       });
       const newUser = await user.save();
 
-      console.log('new User', newUser);
+      console.log('new User', newUser.userID);
 
       const url = `${process.env.CLIENT_URL}/c/t/${newUser.userID}`;
       res
