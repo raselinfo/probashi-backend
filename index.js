@@ -31,7 +31,7 @@ app.use("/api", require("./routes/auth.routes"))
 app.use("/api",require("./routes/user.routes"))
 
 app.get("/health", (_req, res) => {
-    res.send("<h1>OK RAsel</h1>")
+    res.send("<h1>OK RAsel Official</h1>")
 })
 
 app.get('/', (req, res) => {
